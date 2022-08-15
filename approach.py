@@ -194,7 +194,7 @@ def run_approach(
     network_pkl: str,
     outdir: str,
     save_video: bool,
-    save_ws: bool,z
+    save_ws: bool,
     seed: int,
     num_steps: int,
     text: str,
