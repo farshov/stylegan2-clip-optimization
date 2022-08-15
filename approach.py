@@ -237,8 +237,7 @@ def run_approach(
     # take off
     print('Loading networks from "%s"...' % network_pkl)
     device = torch.device('cuda')
-    # with dnnlib.util.open_url(network_pkl) as fp:
-    with open(network_pkl, 'rb') as fp:
+    with dnnlib.util.open_url(network_pkl) as fp:
         G = legacy.load_network_pkl(fp)['G_ema'].requires_grad_(False).to(device) # type: ignore
 
     # approach
