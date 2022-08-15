@@ -194,7 +194,7 @@ def run_approach(
     network_pkl: str,
     outdir: str,
     save_video: bool,
-    save_ws: bool,
+    save_ws: bool,z
     seed: int,
     num_steps: int,
     text: str,
@@ -237,7 +237,8 @@ def run_approach(
     # take off
     print('Loading networks from "%s"...' % network_pkl)
     device = torch.device('cuda')
-    with dnnlib.util.open_url(network_pkl) as fp:
+    # with dnnlib.util.open_url(network_pkl) as fp:
+    with open(network_pkl, 'rb') as fp:
         G = legacy.load_network_pkl(fp)['G_ema'].requires_grad_(False).to(device) # type: ignore
 
     # approach
